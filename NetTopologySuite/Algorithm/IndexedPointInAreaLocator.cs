@@ -44,7 +44,7 @@ namespace NetTopologySuite.Algorithm
         /// </summary>
         /// <param name="p"> the point to test</param>
         /// <returns> the location of the point in the geometry</returns>  
-        public Location Locate(ICoordinate p)
+        public Location Locate(Coordinate p)
         {
             RayCrossingCounter rcc = new RayCrossingCounter(p);
 

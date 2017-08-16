@@ -24,7 +24,7 @@ namespace NetTopologySuite.Algorithm
         /// <param name="p">The point to test</param>
         /// <param name="geom">the areal geometry to test</param>
         /// <returns>The Location of the point in the geometry</returns>
-        public static Location Locate(ICoordinate p, IGeometry geom)
+        public static Location Locate(Coordinate p, IGeometry geom)
         {
             if (geom.IsEmpty)
                 return Location.Exterior;
@@ -40,7 +40,7 @@ namespace NetTopologySuite.Algorithm
         /// <param name="p"></param>
         /// <param name="geom"></param>
         /// <returns></returns>
-        private static bool ContainsPoint(ICoordinate p, IGeometry geom)
+        private static bool ContainsPoint(Coordinate p, IGeometry geom)
         {
             if (geom is IPolygon) 
                 return ContainsPointInPolygon(p, (IPolygon) geom);
@@ -66,7 +66,7 @@ namespace NetTopologySuite.Algorithm
         /// <param name="p"></param>
         /// <param name="poly"></param>
         /// <returns></returns>
-        public static bool ContainsPointInPolygon(ICoordinate p, IPolygon poly)
+        public static bool ContainsPointInPolygon(Coordinate p, IPolygon poly)
         {
             if (poly.IsEmpty) 
                 return false;
@@ -87,7 +87,7 @@ namespace NetTopologySuite.Algorithm
         /// <param name="p">The point to test</param>
         /// <param name="ring">A linear ring</param>
         /// <returns>true if the point lies inside the ring</returns>
-        private static bool IsPointInRing(ICoordinate p, ILinearRing ring)
+        private static bool IsPointInRing(Coordinate p, ILinearRing ring)
         {
             // short-circuit if point is not in ring envelope
             if (!ring.EnvelopeInternal.Intersects(p))
@@ -102,7 +102,7 @@ namespace NetTopologySuite.Algorithm
             _geom = geom;
         }
 
-        public Location Locate(ICoordinate p)
+        public Location Locate(Coordinate p)
         {
             return Locate(p, _geom);
         }

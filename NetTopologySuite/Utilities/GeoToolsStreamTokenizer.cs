@@ -1,3 +1,4 @@
+#if NET35
 using System;
 using System.IO;
 using System.Text;
@@ -240,3 +241,4 @@ namespace NetTopologySuite.Utilities
 		}
 	}
 }
+#endif
